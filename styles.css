@@ -1,0 +1,26 @@
+.dropdown-list {
+    display:none;
+    width:155px;
+    position:relative;
+}
+.open-button{
+    font-size: medium;
+    border:1px solid black;
+    width:120px;
+    padding: 10px;
+    margin: 10px;
+    cursor:pointer;
+}
+
+.dropdown-button{
+    font-size: medium;
+    border:1px solid black;
+    width:120px;
+    margin: 1px 10px;
+
+}
+
+.dropdown-list div{
+    padding:10px;
+    cursor:pointer;
+}

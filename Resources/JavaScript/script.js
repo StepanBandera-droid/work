@@ -7,25 +7,31 @@ openButton.textContent = "Выбрать элемент";
 openButton.classList.add("open-button");
 dropDown.prepend(openButton);
 
-//TODO saved this project in GitHub
-//TODO Transform data to JSON file. JSON to meta.json and get data from it in this script.
 //TODO add id to ever item
 
-const buttons = ["Click 1","Click 2","Click 3"];
+let buttons;
 
-//const Array = JSON.stringify(buttons);
-//const ArrayParsed = JSON.parse(Array);
+async function fetchArray(){
+try{
+    const response = await fetch('Resources/JSON/meta.json')
+    buttons = await response.json()
 
-function createDropdownElement(){
-// Создаём выпадающие кнопки (элементы) списка.
-buttons.forEach(button=>{
-    const dropDownButton = document.createElement("div");
-    dropDownButton.textContent = button;
-    dropDownList.appendChild(dropDownButton);
-    dropDownButton.classList.add("dropdown-button");
-})
+    function createDropdownElement(){
+        // Создаём выпадающие кнопки (элементы) списка.
+        buttons.forEach(button=>{
+            const dropDownButton = document.createElement("div");
+            dropDownButton.textContent = button;
+            dropDownList.appendChild(dropDownButton);
+            dropDownButton.classList.add("dropdown-button");
+        })
+        }
+    createDropdownElement();
+} catch {
+console.error("Ошибка при загрузке данных:", "error")
+    }
 }
-createDropdownElement();
+
+fetchArray();
 
 // Вешаем слушатель событий на контейнер с кнопками.
 function addListenerToList (){
